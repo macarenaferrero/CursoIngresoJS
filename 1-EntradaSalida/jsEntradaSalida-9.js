@@ -12,6 +12,6 @@ function mostrarAumento()
 
      document.getElementById("resultado").value = aumento;
     
-
+    //Mejorar con mas variables
 	
 }

@@ -15,10 +15,10 @@ var mensaje;
     //Asigno variables
 
     largo = document.getElementById("Largo").value;
-    largo = parseInt(largo);
+    largo = parseFloat(largo);
 
     ancho = document.getElementById("Ancho").value;
-    ancho = parseInt(ancho);
+    ancho = parseFloat(ancho);
 
     perimetro = (largo*2 + ancho*2)*3;
     mensaje = ("Debe comprar " + perimetro + " metros de alambre.");
@@ -26,6 +26,8 @@ var mensaje;
     //Muestro resultado
 
     alert(mensaje);
+
+    console.log("mensaje: " + alert);
 
 }
 function Circulo () 
@@ -40,14 +42,39 @@ var mensaje;
     radio = document.getElementById("Radio").value;
     radio = parseFloat(radio)
 
-    perimetro = (2*radio*3*3.141592654);
+    perimetro = (2*radio*Math.PI*3);
     mensaje = ("Debe comprar " + perimetro + " metros de alambre.");
 
     //Muestro resultado
     
     alert(mensaje);
+
+    console.log("Circulo: " + perimetro);
 }
 function Materiales () 
 {
-	
+	    //Declaro variables
+var largo;
+var ancho;
+var m2;
+var compracal;
+var compracemento;
+
+    //Asigno variables
+
+    largo = document.getElementById("Largo").value;
+    largo = parseFloat(largo);
+
+    ancho = document.getElementById("Ancho").value;
+    ancho = parseFloat(ancho);
+
+    //Evaluo cantidad de materiales
+    m2 = (largo*ancho);
+    compracal = (m2*3);
+    compracemento = (m2*2);
+
+    alert("Usted debe comprar " + compracal + " bolsas de cal y " + compracemento + " bolsas de cemento.");
+
+    console.log("compra final: " + compracemento);
 }
+

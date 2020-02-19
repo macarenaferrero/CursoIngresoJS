@@ -10,4 +10,4 @@ function mostrar() {
 
 /* while(!(numero>=0 && numero <=9));
 ESTA OPCION NO NECESITA "isNaN"
-*]/
+*/

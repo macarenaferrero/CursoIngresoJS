@@ -41,10 +41,21 @@ function mostrar() {
 			cantidadCeros++
 		}
 		respuesta = prompt("Desea continuar? Si desea cancelar escriba no");
-	}//terminamos el buvle
+
+	}//terminamos el bucle
+	
 	promedioNegativos = acumuladorNegativos / cantidadNegativos;
 	promedioPositivos = acumuladorPositivos / cantidadPositivos
 	diferenciaNegativosPositivos = promedioPositivos - promedioNegativos
 
-		document.write("El total de números positivos es de : " + acumuladorPositivos + "<Br>" + "El total de los numeros negativos es de " + acumuladorNegativos + "<Br>")
+		document.write("El total de números positivos es de : " +acumuladorPositivos + "<Br>" + 
+		"El total de los numeros negativos es de " + acumuladorNegativos + "<Br>" +
+		"La cantidad de positivos ingresados es de: " + cantidadPositivos + "<Br>" +
+		"La cantidad de los negativos ingresados es de: " + cantidadNegativos + "<Br>" +
+		"La cantidad de los ceros ingresados es de: " + cantidadCeros + "<Br>" +
+		"La cantidad de números pares ingresados es de: " + cantidadNumeroPares +  "<Br>" +
+		"El promedio de los negativos es de: " +  promedioNegativos + "<Br>" +
+		"El promedio de los positivos es de: " +  promedioPositivos + "<Br>" +
+		"La diferencia entre positivos y negativos es de: " + diferenciaNegativosPositivos);
+
 	}//FIN DE LA FUNCIÓN

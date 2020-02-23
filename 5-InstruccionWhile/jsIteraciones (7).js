@@ -4,25 +4,25 @@ function mostrar() {
 	var acumulador = 0;
 	var respuesta = 'si';
 
-	while (respuesta == "si") {
-		numeroIngresado = parseInt(prompt("Ingrese un número."));
+	while (respuesta != "no") {
+		numeroIngresado = prompt("Ingrese un número.");
+		numeroIngresado = parseInt(numeroIngresado);
+
+		//Validar que es correcto.
 		while (isNaN(numeroIngresado)) {
 			numeroIngresado = prompt("Lo que ingresaste no es un número, reintente");
 			numeroIngresado = parseInt(numeroIngresado);
 		}
-		//Ya sabemos que contamos con un número.
-		contador++;
+		respuesta = prompt("Desea continuar? Si desea cancelar escriba no");
+		contador++
 		acumulador = acumulador + numeroIngresado;
-		console.log("El contador es: " + contador);
+		promedio = acumulador / contador
 		console.log("Se encuentra acumulando: " + acumulador)
+		console.log("El promedio es: " + promedio);
 
-	}
-	//Ya se que tengo numeros.
-	respuesta = prompt("Desea continuar : ingrese si");
-	contador++
+	} //CIERRE WHILE
+	
 	document.getElementById('suma').value = acumulador;
 	document.getElementById('promedio').value = acumulador / contador;
 
 }//FIN DE LA FUNCIÓN
-
-//TERMINAR

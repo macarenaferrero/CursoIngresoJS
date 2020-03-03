@@ -27,32 +27,33 @@ function mostrar() {
     var contadorQR = 0;
     var contadorTarjeta = 0;
     var formaDepPagoMasUtilizada;
+    var maximoDias;
+    var maximoPersonasMaxDias;
 
     do {
         nombre = prompt("Ingrese nombre");
         while (!isNaN(nombre)) {
             nombre = prompt("Lo que ingresaste no es un nombre, reintente");
         }
-        contadordeReservas++
+        contadordeReservas++;
         console.log("contador reservas:" + contadordeReservas);
 
         cantidadDePersonas = prompt("Cantidad de personas");
-        parseInt(cantidadDePersonas);
+        cantidadDePersonas = parseInt(cantidadDePersonas);
         while (isNaN(cantidadDePersonas) || cantidadDePersonas < 0) {
             cantidadDePersonas = prompt("Cantidad incorrecta. Reintente.");
-            parseInt(cantidadDePersonas);
-            console.log("Cantidad de personas: " + cantidadDePersonas)
+            cantidadDePersonas = parseInt(cantidadDePersonas);
+            console.log("Cantidad de personas: " + cantidadDePersonas);
 
         }// Termina Cantidad de personas
 
         cantidadDeDias = prompt("Ingrese cantidad de días");
-        parseInt(cantidadDeDias);
-        while (isNaN(cantidadDeDias) || cantidadDeDias < 1) 
-        {
+        cantidadDeDias=parseInt(cantidadDeDias);
+        while (isNaN(cantidadDeDias) || cantidadDeDias < 1) {
             cantidadDeDias = prompt("Lo que ingresaste no es correcto, reintente");
-            parseInt(cantidadDeDias);
+            cantidadDeDias=parseInt(cantidadDeDias);
         } //Termina variable cantidad de Días
-        console.log("Cantidad de días: " + cantidadDeDias)
+        console.log("Cantidad de días: " + cantidadDeDias);
 
         acumuladorDeDias = parseInt(acumuladorDeDias) + parseInt(cantidadDeDias);
         console.log("Acumulador de días: " + acumuladorDeDias);
@@ -61,48 +62,49 @@ function mostrar() {
         while (!isNaN(formaDePago) || formaDePago != "efectivo" && formaDePago != "qr" && formaDePago != "tarjeta") {
             formaDePago = prompt("Reingrese una forma de pago aceptable");
         } // Terminado forma de pago
-        respuesta = prompt("¿Desea continuar? De lo contrario ingrese NO")
+        
+
+        if (contadordeReservas == 1 || cantidadDePersonas > maximasPersonas) {
+            maximasPersonas = cantidadDePersonas;
+            maximoHuesped = nombre;
+            console.log("Máximas personas: " + maximasPersonas)
+            console.log("Máximo huesped: " + maximoHuesped)
+        }
+        if (contadordeReservas == 1 || cantidadDeDias > maximoDias) {
+            maximoDias = cantidadDeDias;
+            maximoPersonasMaxDias = cantidadDePersonas;
+
+            console.log("Maximas personas: " + maximoDias);
+        }
+        switch (formaDePago) {
+            case "efectivo":
+                contadorefete++
+                break;
+            case "qr":
+                contadorQR++
+                break;
+            default:
+                contadorTarjeta++
+        }
+        if (contadorefete > contadorQR && contadorefete > contadorTarjeta) {
+            formaDepPagoMasUtilizada = "efectivo"
+
+        } else {
+            if (contadorQR > contadorTarjeta) {
+                formaDepPagoMasUtilizada = "qr"
+            } else {
+                formaDepPagoMasUtilizada = "tarjeta"
+            }
+
+        }
+        respuesta = prompt("¿Desea continuar? De lo contrario ingrese NO");
     } while (respuesta != "NO");
 
-
-    if (contadordeReservas == 1 || cantidadDePersonas > maximasPersonas) {
-        maximasPersonas = cantidadDePersonas;
-        maximoHuesped = nombre;
-        console.log("Máximas personas: " + maximasPersonas)
-        console.log("Máximo huesped: " + maximoHuesped)
-    }
-    if (contadordeReservas == 1 || cantidadDeDias > maximasPersonas) {
-        maximasPersonas = cantidadDeDias;
-
-    }
-    switch (formaDePago) {
-        case "efectivo":
-            contadorefete++
-            break;
-        case "qr":
-            contadorQR++
-            break;
-        default:
-            contadorTarjeta++
-    }
-    if (contadorefete > contadorQR && contadorefete > contadorTarjeta) {
-        formaDepPagoMasUtilizada = "efectivo"
-
-    } else {
-        if (contadorQR > contadorTarjeta) {
-            formaDepPagoMasUtilizada = "qr"
-        } else {
-            formaDepPagoMasUtilizada = "tarjeta"
-        }
-
-    }
-
-
-    promedio = contadordeReservas / acumuladorDeDias
+    promedio = acumuladorDeDias / contadordeReservas
     console.log("Promedio días: " + promedio)
 
-document.write("El huesped que trajo más personas es: " + nombre + "<Br>" +
-"La cantidad de personas que se quedaron más días es de: " + maximasPersonas + "<Br>" +
-"La forma de pago más utilizada es de: " + formaDepPagoMasUtilizada + "<Br>" +
-"El promedio de cantidad de días por reserva: " + promedio);
+    document.write("El huesped que trajo más personas es: " + maximoHuesped + "</br>" +
+        "La cantidad de personas que se quedaron más días es de: " + maximoPersonasMaxDias + "</br>" +
+        "La forma de pago más utilizada es de: " + formaDepPagoMasUtilizada + "</br>" +
+        "El promedio de cantidad de días por reserva: " + promedio);
 }

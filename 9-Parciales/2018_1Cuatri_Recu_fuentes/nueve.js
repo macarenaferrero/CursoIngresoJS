@@ -6,6 +6,7 @@ function mostrar() {
     var contadorTemp = 0;
     var flag = 0;
     var animalMasPesado;
+    var animalMenosPesado;
     var nombreMasPesado;
     var contadoAnimalesBajoCero = 0;
     var promedioAnimales;
@@ -37,6 +38,9 @@ function mostrar() {
         if (flag == 0 || pesoAnimal > animalMasPesado) {
             animalMasPesado = pesoAnimal;
             nombreMasPesado = nombreAnimal;
+        }
+        if (flag==0 || pesoAnimal < animalMenosPesado) {
+            animalMenosPesado = pesoAnimal;
             
             flag = 1
         }
@@ -45,11 +49,11 @@ function mostrar() {
             contadoAnimalesBajoCero++;
             // MAXIMOS Y MINIMOS________________________
             
-            if ( contadoAnimalesBajoCero == 1 || temperaturaAnimal > maxAnimalBajoCero) {
-                maxAnimalBajoCero = temperaturaAnimal;
+            if ( contadoAnimalesBajoCero == 1 || animalMasPesado > maxAnimalBajoCero) {
+                maxAnimalBajoCero = animalMasPesado;
             }
-            if ( contadoAnimalesBajoCero == 1 || temperaturaAnimal < minAnimalBajoCero) {
-                minAnimalBajoCero = temperaturaAnimal;
+            if ( contadoAnimalesBajoCero == 1 || animalMenosPesado < minAnimalBajoCero) {
+                minAnimalBajoCero = animalMenosPesado;
 
             }
 
